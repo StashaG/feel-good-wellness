@@ -3,7 +3,6 @@ import React from 'react';
 const Landing = () => {
         return (
             <div className="container">
-                <Landing />
                 <h1>
                     Feel Good Wellness!
                 </h1>
