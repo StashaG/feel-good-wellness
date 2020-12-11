@@ -14,9 +14,8 @@ class App extends Component {
         <ul>
           <li>Yoga</li>
           <li>Mediation</li>
-          <li>Smoothies</li>
+          <li>Smoothie</li>
           <li>Juicing</li>
-          <li>Meals</li>
         </ul>
       </div>
     );

@@ -13,10 +13,10 @@ class App extends Component {
         <p>Choose one:</p>
         <ul>
           <li>Yoga</li>
-          <li>Mediation</li>
-          <li>Smoothies</li>
+          <li><Mediation/li>
+          <li>Smoothie</li>
           <li>Juicing</li>
-          <li>Meals</li>
+
         </ul>
       </div>
     );
