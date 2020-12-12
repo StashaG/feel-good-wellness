@@ -14,7 +14,7 @@ const Landing = () => {
                      meals into your daily routine can really help you develop healthy 
                      habits that could improve your health.
                 </p>
-                <p>Try incorporating one of these options into your day:</p>
+                <p>What you like to add to your daily routine?</p>
                 <p>Choose one:</p>
                 <ul>
                     <li><button type="button" class="btn btn-primary btn-lg">Yoga</button></li>
