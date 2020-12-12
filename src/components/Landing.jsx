@@ -1,4 +1,6 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
+
 
 const Landing = () => {
         return (
@@ -10,12 +12,13 @@ const Landing = () => {
                 <p>Try incorporating one of these options into your day:</p>
                 <p>Choose one:</p>
                 <ul>
-                    <li>Yoga</li>
-                    <li>Mediation</li>
-                    <li>Smoothies</li>
-                    <li>Juicing</li>
-                    <li>Meals</li>
+                    <li><button type="button" class="btn btn-primary btn-lg">Yoga</button></li>
+                    <li><button type="button" class="btn btn-primary btn-lg">Mediation</button></li>
+                    <li><button type="button" class="btn btn-primary btn-lg">Smoothies</button></li>
+                    <li><button type="button" class="btn btn-primary btn-lg">Juicing</button></li>
+                    <li><button type="button" class="btn btn-primary btn-lg">Plant-based Meals</button></li>
                 </ul>
+                <button onClick={() => <Redirect to="results" />}>Results</button>
             </div>
         )
     }
