@@ -8,7 +8,12 @@ const Landing = () => {
                 <h1>
                     Feel Good Wellness!
                 </h1>
-                <p>Incorporating a healthy lifestyle can really help improve your day and even your week and give you mental clarity.</p>
+                <p>Developing a healthy lifestyle is really important for your
+                     overall health and especially your mental well-being. 
+                     Adding yoga, meditation, smoothies, juicing, or even plant-based 
+                     meals into your daily routine can really help you develop healthy 
+                     habits that could improve your health.
+                </p>
                 <p>Try incorporating one of these options into your day:</p>
                 <p>Choose one:</p>
                 <ul>
