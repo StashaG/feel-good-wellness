@@ -9,6 +9,7 @@ const App = () => {
       <div className="app-container">
         <main>
           <Switch>
+            <Header />
             <Route exact path='/' component={Landing} /> 
             <Route path='/results' component={Result} />
           </Switch>
