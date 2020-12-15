@@ -3,8 +3,8 @@ import { Link, Route, Switch } from 'react-router-dom';
 import Landing from './components/Landing';
 import Result from './components/Result';
 import Yoga from './components/Yoga';
-import Smoothie from '.component/Smoothie';
-import  Juicing from '.component/Juicing';
+import Smoothie from './components/Smoothie';
+import Juicing from './components/Juicing';
 import './index.css';
 
 const App = () => {
@@ -16,7 +16,7 @@ const App = () => {
             <Route exact path='/' component={Landing} /> 
             <Route path='/results' component={Result} />
             <Route path='/yoga' component={Yoga} />
-            <Route path='/smoothies' component={Smoothie} />
+            <Route path='/smoothie' component={Smoothie} />
             <Route path='/juicing' component={Juicing} />
           </Switch>
        </main>

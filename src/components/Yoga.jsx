@@ -2,7 +2,7 @@ import React from 'react';
 
 const Yoga = () => {
     return (
-        <div className="container">>
+        <div className="container">
             <h1>
                 Yoga
             </h1>
