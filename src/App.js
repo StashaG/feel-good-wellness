@@ -11,10 +11,9 @@ import './index.css';
 const App = () => {
     return (
       <div className="app-container">
-        
+        <Header />
          <main>
           <Switch>
-            <Header /> 
             <Route exact path='/' component={Landing} /> 
             <Route path='/results' component={Result} />
             <Route path='/yoga' component={Yoga} />

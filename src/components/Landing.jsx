@@ -1,5 +1,7 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
+import { Link, Route, Switch } from 'react-router-dom';
+
 
 
 const Landing = () => {
@@ -17,7 +19,7 @@ const Landing = () => {
                 <p>What you like to add to your daily routine?</p>
                 <p>Choose one:</p>
                 <ul>
-                    <li><button type="button" class="btn btn-primary btn-lg">Yoga</button></li>
+                    <li><Link to="/yoga"><button type="button" class="btn btn-primary btn-lg">Yoga</button></Link></li>
                     <li><button type="button" class="btn btn-primary btn-lg">Mediation</button></li>
                     <li><button type="button" class="btn btn-primary btn-lg">Smoothies</button></li>
                     <li><button type="button" class="btn btn-primary btn-lg">Juicing</button></li>

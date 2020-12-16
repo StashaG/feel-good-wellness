@@ -1,12 +1,14 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import Navbar from "react-bootstrap/Navbar";
+import { Link, Route, Switch } from 'react-router-dom';
+
 
 const Header = () => {
     return (
         <>
       <Navbar bg="light">
-        <Navbar.Brand href="#home">
+        <Link to="/"><Navbar.Brand>
           <img
             alt="logo"
             src="/logo-with-flower.png"
@@ -15,7 +17,7 @@ const Header = () => {
             className="d-inline-block align-top"
           />{" "}
           
-        </Navbar.Brand>
+          </Navbar.Brand></Link>
       </Navbar>
     </>
     );
