@@ -25,10 +25,9 @@ const Landing = () => {
                 
             </Jumbotron>
                 
-                <p>Choose one:</p>
                 <ul>
                     <li><Link to="/yoga"><button type="button" class="btn btn-primary btn-lg">Yoga</button></Link></li>
-                    <li><button type="button" class="btn btn-primary btn-lg">Smoothies</button></li>
+                    <li><Link to="/smoothie"><button type="button" class="btn btn-primary btn-lg">Smoothies</button></Link></li>
                     <li><button type="button" class="btn btn-primary btn-lg">Juicing</button></li>
                     <li><button type="button" class="btn btn-primary btn-lg">Plant-based Meals</button></li>
                 </ul>
