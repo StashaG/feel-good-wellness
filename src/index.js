@@ -1,6 +1,6 @@
-import 'bootstrap/dist/css/bootstrap.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import 'bootstrap/dist/css/bootstrap.css';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-dom';
 // import store from "./redux/store";
