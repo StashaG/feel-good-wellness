@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Jumbotron } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-// import axios from 'axios';
+import Card from 'react-bootstrap/Card'
+
+import axios from 'axios';
 import OAuth from 'oauth';
+import YogaList from './YogaList';
 
 const API_KEY = process.env.REACT_APP_API_KEY  
 const API_SECRET = process.env.REACT_APP_API_SECRET 
@@ -20,32 +21,28 @@ const oauth = new OAuth.OAuth(
 
 const Yoga = () => {
 
+const [yogaData, setYogaData]= useState({})
+const [isLoading, setIsLoading]= useState(true)
 
     useEffect(() => {
-        oauth.get(
-            'https://api.thenounproject.com/collection/yoga-pose-set-1/icons',
+        oauth.get('https://api.thenounproject.com/collection/yoga-pose-set-1/icons',
             null,
             null,
             function (e, data, res){
                 if (e) console.error(e)
-                console.log(JSON.parse(data));
+                // console.log(JSON.parse(data));
+                const yd = JSON.parse(data);
+                console.log(yd);
+                setYogaData(JSON.parse(data));
+                setIsLoading(false)
             }
         )
-        // const nounProject = new NounProject({
-        // key: API_KEY,
-        // secret: API_SECRET
-        // });
-
-        // nounProject.getIconsBySlug('yoga-pose-set-1', {limit: 5}, function (err, data) {
-        //     if (!err) {
-        //         console.log(data.icons);
-        //     }
-        // });
 
             },[])
 
 
     return (
+
 
         // const yoga = this.state.isReady ? this.state.yoga.map( url => <)
         <div className="container">
@@ -63,19 +60,16 @@ const Yoga = () => {
                 </Container>
             </Jumbotron>
 
-            <Container>
-                <Row>
-                    <Col>1 of 2</Col>
-                    <Col>2 of 2</Col>
-                </Row>
-                <Row>
-                    <Col>1 of 3</Col>
-                    <Col>2 of 3</Col>
-                    <Col>3 of 3</Col>
-                </Row>
-            </Container>
+            <div className="main-content">
+                {!isLoading && 
+                <>
+                <h1>{yogaData.icons[0].term}</h1>
+                <img src= {yogaData.icons[0].preview_url}/></>
+                }
+            </div>
+            
 
-
+            
         </div>
     );
 }

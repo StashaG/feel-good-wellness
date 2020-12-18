@@ -5,15 +5,19 @@ import Result from './components/Result';
 import Yoga from './components/Yoga';
 import Smoothie from './components/Smoothie';
 import Food from './components/Food';
-// import Footer from './components/Footer';
 
+// import Footer from './components/Footer';
 import './index.css';
 
 const App = () => {
 
     return (
       <div className="app-container">
+        <div className="container">
         <Header />
+        
+        <img src="/images/healthy-food-display.jpg" alt="healthy-food"/>
+        
          <main>
           <Switch>
             <Route exact path='/' component={Landing} /> 
@@ -25,6 +29,7 @@ const App = () => {
           </Switch>
        </main>
        {/* <Footer /> */}
+       </div>
       </div>
     );
   }

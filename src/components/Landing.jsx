@@ -14,14 +14,18 @@ const Landing = () => {
                     <p>
                     Developing a healthy lifestyle is really important for your
                         overall health and especially your mental well-being. 
-                        Adding yoga, meditation, smoothies, juicing, or even plant-based 
-                        meals into your daily routine can really help you develop healthy 
-                        habits that could improve your health.
+                        Adding yoga, smoothies and plant-based meals into your 
+                        daily routine can really help you develop healthy 
+                        habits that could improve your health. So you don't get 
+                        overwhelmed with making healthy changes you can just start 
+                        with adding one option to your diet and gradually add the others.
                     </p>
                 <h3>
                 What you like to add to your daily routine? 
                 </h3>
-                <h5>Choose one:</h5>
+                <br />
+                <h3>Choose one:</h3>
+                <br />
                     <ul>
                         <li><Link to="/yoga"><button type="button" class="btn btn-primary btn-lg">Yoga</button></Link></li>
                         <li><Link to="/smoothie"><button type="button" class="btn btn-primary btn-lg">Smoothies</button></Link></li>
@@ -30,8 +34,7 @@ const Landing = () => {
                 
             </Jumbotron>
                 
-                
-                <button onClick={() => <Redirect to="results" />}>Results</button>
+                {/* <button onClick={() => <Redirect to="results" />}>Results</button> */}
             </div>
         )
     }
