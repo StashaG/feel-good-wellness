@@ -4,7 +4,8 @@ import Landing from './components/Landing';
 import Result from './components/Result';
 import Yoga from './components/Yoga';
 import Smoothie from './components/Smoothie';
-import Juicing from './components/Juicing';
+import Food from './components/Food';
+// import Footer from './components/Footer';
 
 import './index.css';
 
@@ -19,9 +20,11 @@ const App = () => {
             <Route path='/results' component={Result} />
             <Route path='/yoga' component={Yoga} />
             <Route path='/smoothie' component={Smoothie} />
-            <Route path='/juicing' component={Juicing} /> 
+            <Route path='/food' component={Food} />
+            {/* <Route path='/footer' component={Footer} />  */}
           </Switch>
        </main>
+       {/* <Footer /> */}
       </div>
     );
   }

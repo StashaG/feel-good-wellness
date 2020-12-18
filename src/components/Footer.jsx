@@ -2,11 +2,11 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <div className="container">
-            <h1>
-                Footer
-            </h1>
-        </div>
+        <footer class="footer mt-auto py-3 bg-light">
+            <div class="container">
+                <span class="text-muted">Feel Good Wellness</span>
+            </div>
+        </footer>
     );
 }
 

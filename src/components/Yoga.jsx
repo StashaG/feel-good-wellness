@@ -1,6 +1,9 @@
 import React, { useEffect } from 'react';
 import { Jumbotron } from 'react-bootstrap';
-import axios from 'axios';
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+// import axios from 'axios';
 import OAuth from 'oauth';
 
 const API_KEY = process.env.REACT_APP_API_KEY  
@@ -43,15 +46,34 @@ const Yoga = () => {
 
 
     return (
+
+        // const yoga = this.state.isReady ? this.state.yoga.map( url => <)
         <div className="container">
-            <Jumbotron>
-               <h2> 
+            <Jumbotron fluid>
+                <Container>
+               <h2>
+                   Yoga
+               </h2>
+             <p>
             Yoga offers physical and mental health benefits for people of all ages. 
             And, if you are going through an illness, recovering from surgery or living 
             with a chronic condition, yoga can become an integral part of your treatment 
             and potentially hasten healing.
-                </h2>
+            </p>
+                </Container>
             </Jumbotron>
+
+            <Container>
+                <Row>
+                    <Col>1 of 2</Col>
+                    <Col>2 of 2</Col>
+                </Row>
+                <Row>
+                    <Col>1 of 3</Col>
+                    <Col>2 of 3</Col>
+                    <Col>3 of 3</Col>
+                </Row>
+            </Container>
 
 
         </div>
