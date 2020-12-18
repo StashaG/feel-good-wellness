@@ -9,6 +9,7 @@ import Juicing from './components/Juicing';
 import './index.css';
 
 const App = () => {
+
     return (
       <div className="app-container">
         <Header />
