@@ -21,10 +21,10 @@ ul {
 li {
   margin: 0 0 10px 0;
 }
-
+/* 
 img {
   height:600px;
-}
+} */
 
 .yoga-flexbox {
     display: flex;
