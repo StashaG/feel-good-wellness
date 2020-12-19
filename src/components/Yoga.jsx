@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import {connect } from "react-redux";
 import { Jumbotron } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container'
 import Card from 'react-bootstrap/Card'
-
 import axios from 'axios';
 import OAuth from 'oauth';
 import YogaList from './YogaList';
@@ -19,10 +19,21 @@ const oauth = new OAuth.OAuth(
 	'HMAC-SHA1'
 )
 
+
 const Yoga = () => {
+
+  const YogaList =  {
+        name: "name of the pose",
+        image: "url of the pose",
+        isFavorite: false
+   }
+
 
 const [yogaData, setYogaData]= useState({})
 const [isLoading, setIsLoading]= useState(true)
+const [yogaPoses, setYogaPoses]= useState([])
+const [selectValue, setSelectValue] = useState("")
+
 
     useEffect(() => {
         oauth.get('https://api.thenounproject.com/collection/yoga-pose-set-1/icons',
@@ -35,11 +46,21 @@ const [isLoading, setIsLoading]= useState(true)
                 console.log(yd);
                 setYogaData(JSON.parse(data));
                 setIsLoading(false)
-            }
+                // getTerms(yd);
+                    const newTerms = yd.icons.map((pose)=> {
+        return (`${pose.term}`)
+    })
+console.log(newTerms);
+    setYogaPoses(newTerms)
+            } 
+            
         )
 
             },[])
 
+const handleSelectChange = (e) => {
+    console.log(e.value);
+}
 
     return (
 
@@ -63,11 +84,18 @@ const [isLoading, setIsLoading]= useState(true)
             <div className="main-content">
                 {!isLoading && 
                 <>
-                <h1>{yogaData.icons[0].term}</h1>
-                <img src= {yogaData.icons[0].preview_url}/></>
+                <h1>{yogaData.icons[10].term}</h1>
+                <img id="yogaImage" src= {yogaData.icons[10].preview_url}/></>
                 }
             </div>
-            
+            <div className="yoga-poses">
+                <select value={selectValue} onChange={() => handleSelectChange}id="YogaList">
+                    {/* <option>Select yoga pose:</option> */}
+                    {yogaPoses.map(option => { return (<option value={option} key={option}>{option}</option>)} )}
+                </select>
+
+            </div>
+
 
             
         </div>

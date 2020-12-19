@@ -1,5 +1,5 @@
-import 
+// import 
 
-const initialState = {
-    favorites: []
-};
+// const initialState = {
+//     favorites: []
+// };
