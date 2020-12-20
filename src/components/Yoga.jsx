@@ -22,18 +22,16 @@ const oauth = new OAuth.OAuth(
 
 const Yoga = () => {
 
-  const YogaData =  {
-        name: "name of the pose",
-        image: "url of the pose",
-        isFavorite: false
-   }
-
-
-const [yogaData, setYogaData]= useState({})
+const [yogaData, setYogaData]= useState({}) 
 const [isLoading, setIsLoading]= useState(true)
 const [yogaPoses, setYogaPoses]= useState([])
 const [selectValue, setSelectValue] = useState("")
 
+// const yogaList =  {
+//     name: "name of the pose",
+//     image: "url of the pose",
+//     isFavorite: false
+// }
 
     useEffect(() => {
         oauth.get('https://api.thenounproject.com/collection/yoga-pose-set-1/icons',
@@ -47,10 +45,13 @@ const [selectValue, setSelectValue] = useState("")
                 setYogaData(JSON.parse(data));
                 setIsLoading(false)
                 // getTerms(yd);
-                    
                 
                 const newTerms = yd.icons.map((pose)=> {
-        return (`${pose.term}`)
+        return (<>
+        <h1>{`${pose.term}`}</h1>
+
+        <img id="yogaImage" src= {`${pose.preview_url}`}/>
+        </>)
     })
 console.log(newTerms);
     setYogaPoses(newTerms)
@@ -87,15 +88,16 @@ const handleSelectChange = (e) => {
             <div className="main-content">
                 {!isLoading && 
                 <>
-                <h1>{yogaData.icons[0].term}</h1>
 
-                 <img id="yogaImage" src= {yogaData.icons[0].preview_url}/></>
+                </>
+               
                 }
             </div>
             <div className="yoga-poses">
-                <select value={selectValue} onChange={() => handleSelectChange}id="YogaList">
+                {yogaPoses.map(yogaPose => <li>{yogaPose}</li>)}
+                {/* <select value={selectValue} onChange={() => handleSelectChange}id="YogaList">
                     {yogaPoses.map(option => { return (<option value={option} key={option}>{option}</option>)} )}
-                 </select>
+                 </select> */}
 
             </div>
 
