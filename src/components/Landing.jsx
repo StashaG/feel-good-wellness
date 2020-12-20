@@ -21,7 +21,7 @@ const Landing = () => {
                         with adding one option to your diet and gradually add the others.
                     </p>
                 <h3>
-                What you like to add to your daily routine? 
+                What would you like to add to your daily routine? 
                 </h3>
                 <br />
                 <h3>Choose one:</h3>

@@ -22,7 +22,7 @@ const oauth = new OAuth.OAuth(
 
 const Yoga = () => {
 
-  const YogaList =  {
+  const YogaData =  {
         name: "name of the pose",
         image: "url of the pose",
         isFavorite: false
@@ -47,7 +47,9 @@ const [selectValue, setSelectValue] = useState("")
                 setYogaData(JSON.parse(data));
                 setIsLoading(false)
                 // getTerms(yd);
-                    const newTerms = yd.icons.map((pose)=> {
+                    
+                
+                const newTerms = yd.icons.map((pose)=> {
         return (`${pose.term}`)
     })
 console.log(newTerms);
@@ -56,6 +58,7 @@ console.log(newTerms);
             
         )
 
+        
             },[])
 
 const handleSelectChange = (e) => {
@@ -84,15 +87,15 @@ const handleSelectChange = (e) => {
             <div className="main-content">
                 {!isLoading && 
                 <>
-                <h1>{yogaData.icons[10].term}</h1>
-                <img id="yogaImage" src= {yogaData.icons[10].preview_url}/></>
+                <h1>{yogaData.icons[0].term}</h1>
+
+                 <img id="yogaImage" src= {yogaData.icons[0].preview_url}/></>
                 }
             </div>
             <div className="yoga-poses">
                 <select value={selectValue} onChange={() => handleSelectChange}id="YogaList">
-                    {/* <option>Select yoga pose:</option> */}
                     {yogaPoses.map(option => { return (<option value={option} key={option}>{option}</option>)} )}
-                </select>
+                 </select>
 
             </div>
 
