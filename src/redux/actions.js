@@ -2,24 +2,37 @@ import {
     ADD_FAVORITE, 
     DELETE_FAVORITE, 
     SAVE_RECIPE, 
+    SAVE_FAVORITE,
     FILTER_LIST
 } from"./actionTypes";
 
 
  export const addFavorite = index => {
     return {
-        type: 'FAVORITE_ADDED',
+        type: ADD_FAVORITE,
         payload: {
-            index: index
+  
+            favorite: {
+
+                name: "name of the pose",
+                image: "url of the pose",
+                isFavorite: false
+            }
         }
-    };
+    }
  };
 
  export const removeFavorite = index => {
     return {
-        type: 'FAVORITE_REMOVED',
+        type: DELETE_FAVORITE,
         payload: {
-            index: index
+
+            favorite: {
+
+                name: "name of the pose",
+                image: "url of the pose",
+                isFavorite: false
+            }
         }
-    };
+    }
  };

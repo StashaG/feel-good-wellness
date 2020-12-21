@@ -1,9 +1,9 @@
+
 import React, { useEffect, useState } from 'react';
 import {connect } from "react-redux";
 import { Jumbotron } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container'
 import Card from 'react-bootstrap/Card'
-import axios from 'axios';
 import OAuth from 'oauth';
 import YogaList from './YogaList';
 
@@ -27,11 +27,6 @@ const [isLoading, setIsLoading]= useState(true)
 const [yogaPoses, setYogaPoses]= useState([])
 const [selectValue, setSelectValue] = useState("")
 
-// const yogaList =  {
-//     name: "name of the pose",
-//     image: "url of the pose",
-//     isFavorite: false
-// }
 
     useEffect(() => {
         oauth.get('https://api.thenounproject.com/collection/yoga-pose-set-1/icons',
@@ -58,17 +53,12 @@ console.log(newTerms);
             } 
             
         )
-
         
             },[])
-
 const handleSelectChange = (e) => {
     console.log(e.value);
 }
-
     return (
-
-
         // const yoga = this.state.isReady ? this.state.yoga.map( url => <)
         <div className="container">
             <Jumbotron fluid>
@@ -84,11 +74,9 @@ const handleSelectChange = (e) => {
             </p>
                 </Container>
             </Jumbotron>
-
             <div className="main-content">
                 {!isLoading && 
                 <>
-
                 </>
                
                 }
@@ -98,10 +86,7 @@ const handleSelectChange = (e) => {
                 {/* <select value={selectValue} onChange={() => handleSelectChange}id="YogaList">
                     {yogaPoses.map(option => { return (<option value={option} key={option}>{option}</option>)} )}
                  </select> */}
-
             </div>
-
-
             
         </div>
     );
