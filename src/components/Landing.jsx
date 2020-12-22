@@ -1,10 +1,9 @@
 import React from 'react';
 import { Jumbotron } from 'react-bootstrap';
 // import Button from 'react-bootstrap/Button'
-import { Redirect } from 'react-router-dom';
-import { Link, Route, Switch } from 'react-router-dom';
-
-
+// import { Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+// import './index.css';
 
 const Landing = () => {
         return (
@@ -14,27 +13,18 @@ const Landing = () => {
                     <p>
                     Developing a healthy lifestyle is really important for your
                         overall health and especially your mental well-being. 
-                        Adding yoga, smoothies and plant-based meals into your 
-                        daily routine can really help you develop healthy 
-                        habits that could improve your health. So you don't get 
-                        overwhelmed with making healthy changes you can just start 
-                        with adding one option to your diet and gradually add the others.
+                        Adding yoga to your daily routine can improve strength, balance, 
+                        flexibility and circulation. Yoga can help you manage stress, 
+                        ease back pain and even help you sleep better.
                     </p>
                 <h3>
-                What would you like to add to your daily routine? 
+                Click the button below to see yoga poses you can add to your daily fitness routine 
                 </h3>
-                <br />
-                <h3>Choose one:</h3>
                 <br />
                     <ul>
                         <li><Link to="/yoga"><button type="button" class="btn btn-primary btn-lg">Yoga</button></Link></li>
-                        <li><Link to="/smoothie"><button type="button" class="btn btn-primary btn-lg">Smoothies</button></Link></li>
-                        <li><Link to="/food"><button type="button" class="btn btn-primary btn-lg">Plant-based Meals</button></Link></li>
                     </ul>
-                
             </Jumbotron>
-                
-                {/* <button onClick={() => <Redirect to="results" />}>Results</button> */}
             </div>
         )
     }

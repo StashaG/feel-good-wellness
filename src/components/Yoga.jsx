@@ -69,13 +69,19 @@ const Yoga = (props) => {
     <div className="container">
       <Jumbotron fluid>
         <Container>
-          <h2>Yoga</h2>
-          <p>
-            Yoga offers physical and mental health benefits for people of all
-            ages. And, if you are going through an illness, recovering from
-            surgery or living with a chronic condition, yoga can become an
-            integral part of your treatment and potentially hasten healing.
+          <h1 className="title-heading">Yoga</h1>
+          <br />
+          <p className="pose-description">
+            Cobra pose is a floor pose which gently stretches and flexes the body. 
+            Its head-up position is reminiscent of a cobra rising up off the ground. 
+            It brings flexibility and strength.  Cat Pose, or Marjaryasana, is one of the most commonly recognized yoga poses. 
+          The shape of the body resembles a stretching, arching cat. This pose is usually 
+          done as a partner to Cow Pose, as Cat Pose has the back high while Cow Pose has the back low.
           </p>
+          <h4>
+            Listed below are great yoga poses you could try at home. Select one of the poses to add 
+            to a favorites list to try at home. 
+          </h4>
         </Container>
       </Jumbotron>
       <div className="main-content">

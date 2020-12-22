@@ -1,5 +1,5 @@
-import { Link, Route, Switch } from 'react-router-dom';
-import Header from './components/Header';
+import { Route, Switch } from 'react-router-dom';
+import Navigation from './components/Navigation';
 import Landing from './components/Landing';
 import Result from './components/Result';
 import Yoga from './components/Yoga';
@@ -16,11 +16,9 @@ const App = () => {
     return (
 
       <div className="app-container">
+        <Navigation />
         <div className="container">
-        <Header />
-        
         {/* <img src="/images/healthy-food-display.jpg" alt="healthy-food"/> */}
-        
          <main>
           <Switch>
             <Route exact path='/' component={Landing} /> 
