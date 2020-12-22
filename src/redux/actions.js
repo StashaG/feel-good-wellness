@@ -1,31 +1,21 @@
 import {
     ADD_FAVORITE, 
-    DELETE_FAVORITE, 
-    SAVE_RECIPE, 
-    SAVE_FAVORITE,
-    FILTER_LIST
+    REMOVE_FAVORITE, 
+    CLEAR_FAVORITE
 } from"./actionTypes";
 
 
  export const addFavorite = index => {
     return {
         type: ADD_FAVORITE,
-        payload: {
-  
-            favorite: {
-
-                name: "name of the pose",
-                image: "url of the pose",
-                isFavorite: false
-            }
-        }
+        payload: index 
     }
  };
 
  export const removeFavorite = index => {
     return {
-        type: DELETE_FAVORITE,
-        payload: {
+        type: REMOVE_FAVORITE,
+        payload: index,
 
             favorite: {
 
@@ -35,4 +25,11 @@ import {
             }
         }
     }
+ 
+
+ export const doAddToFavorites = (id) => dispatch => {
+     dispatch ({
+         type: ADD_FAVORITE, 
+         payload: id
+     })
  };
