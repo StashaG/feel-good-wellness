@@ -23,7 +23,6 @@ const oauth = new OAuth.OAuth(
 const Yoga = (props) => {
   const [yogaData, setYogaData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-  const [yogaPoses, setYogaPoses] = useState([]);
   // const [selectValue, setSelectValue] = useState("");
   // const [favorites, setFavorites] = useState([]);
   
@@ -60,9 +59,6 @@ const Yoga = (props) => {
       }
     );
   }, []);
-  const handleSelectChange = (e) => {
-//     console.log(e.value);
-  };
 
   return (
     // const yoga = this.state.isReady ? this.state.yoga.map( url => <)
@@ -108,12 +104,10 @@ console.log(favorites);
           )
         }
       </div>
-      <div className="yoga-poses">
-        {/* {yogaPoses.map(yogaPose => <li>{yogaPose}</li>)} */}
-      </div>
     </div>
   );
 };
+
 const mapDispatchToProps = dispatch => ({
     doAddToFavorites: (id) => dispatch(doAddToFavorites(id))
 

@@ -40,3 +40,10 @@ import {
         payload: id
     })
 };
+
+export const doClearFavorites = (id) => dispatch => {
+    dispatch ({
+        type: CLEAR_FAVORITE, 
+        payload: id
+    })
+};
