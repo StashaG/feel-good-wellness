@@ -33,3 +33,10 @@ import {
          payload: id
      })
  };
+
+ export const doRemoveFavorites = (id) => dispatch => {
+    dispatch ({
+        type: REMOVE_FAVORITE, 
+        payload: id
+    })
+};

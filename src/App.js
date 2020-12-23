@@ -4,11 +4,12 @@ import Landing from './components/Landing';
 import Result from './components/Result';
 import Yoga from './components/Yoga';
 import Smoothie from './components/Smoothie';
+// import Header from './components/Header';
 import Food from './components/Food';
+import './index.css';
+import './App.css';
 
 // import Footer from './components/Footer';
-import './index.css';
-
 
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
       <div className="app-container">
         <Navigation />
         <div className="container">
+          {/* <Header /> */}
         {/* <img src="/images/healthy-food-display.jpg" alt="healthy-food"/> */}
          <main>
           <Switch>

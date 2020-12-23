@@ -12,7 +12,7 @@ export default function(state = initialState, action) {
     case ADD_FAVORITE: 
       return {
         ...state,
-        favorites: state.favorites + action.payload,
+        favorites: state.favorites.concat(action.payload),
       }
     case REMOVE_FAVORITE:
       return {
@@ -25,7 +25,7 @@ export default function(state = initialState, action) {
         if (index === action.index) {
           return {
             ...state,
-            favorites: state.favorites + action.payload
+            favorites:[]
           }
         }
         return

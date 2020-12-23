@@ -4,7 +4,7 @@ import Navbar from "react-bootstrap/Navbar";
 import { Link } from 'react-router-dom';
 
 
-const Header = () => {
+const Navigation = () => {
     return (
         <>
       <Navbar bg="light">
@@ -23,4 +23,4 @@ const Header = () => {
     );
 }
 
-export default Header;
+export default Navigation;

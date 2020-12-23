@@ -24,7 +24,7 @@ const Yoga = (props) => {
   const [yogaData, setYogaData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [yogaPoses, setYogaPoses] = useState([]);
-  const [selectValue, setSelectValue] = useState("");
+  // const [selectValue, setSelectValue] = useState("");
   // const [favorites, setFavorites] = useState([]);
   
   const favorites = {
@@ -116,7 +116,8 @@ console.log(favorites);
 };
 const mapDispatchToProps = dispatch => ({
     doAddToFavorites: (id) => dispatch(doAddToFavorites(id))
-});
+
+  });
 const mapStateToProps = state => ({
   favorites: state.favorites
 
