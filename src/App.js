@@ -7,8 +7,7 @@ import Smoothie from './components/Smoothie';
 // import Header from './components/Header';
 import Food from './components/Food';
 import './index.css';
-import './App.css';
-
+import './App.css'
 // import Footer from './components/Footer';
 
 
