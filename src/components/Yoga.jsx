@@ -7,6 +7,8 @@ import OAuth from "oauth";
 // import YogaCard from "./YogaCard";
 // import { IoIosHeartEmpty } from "react-icons/io";
 import { doAddToFavorites } from "../redux/actions";
+import { doRemoveFavorites } from "../redux/actions";
+import { doClearFavorites } from "../redux/actions";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 const API_SECRET = process.env.REACT_APP_API_SECRET;
@@ -109,13 +111,14 @@ console.log(favorites);
 };
 
 const mapDispatchToProps = dispatch => ({
-    doAddToFavorites: (id) => dispatch(doAddToFavorites(id))
-
+    doAddToFavorites: (id) => dispatch(doAddToFavorites(id)),
+    doRemoveFavorites: (id) => dispatch(doAddToFavorites(id)),
+    doClearFavorites: (id) => dispatch(doAddToFavorites(id))
   });
 const mapStateToProps = state => ({
-  favorites: state.favorites
-
-
+  favorites: state.favorites,
+  favorites: state.slice,
+  favorites: []
 });
 
 export default connect (mapStateToProps, mapDispatchToProps)(Yoga);
