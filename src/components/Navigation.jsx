@@ -12,11 +12,10 @@ const Navigation = () => {
           <img
             alt="logo"
             src="images/logo-with-flower.png"
-            width="200"
-            height="200"
+            width="auto"
+            height="auto"
             className="d-inline-block align-top"
-          />{" "}
-          
+          />
           </Navbar.Brand></Link>
       </Navbar>
     </>
