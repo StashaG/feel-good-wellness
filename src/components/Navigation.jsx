@@ -11,9 +11,9 @@ const Navigation = () => {
         <Link to="/"><Navbar.Brand>
           <img
             alt="logo"
-            src="images/logo-with-flower.png"
-            width="auto"
-            height="auto"
+            src="images/logo.png"
+            width="100"
+            height="100"
             className="d-inline-block align-top"
           />
           </Navbar.Brand></Link>
