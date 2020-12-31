@@ -16,7 +16,7 @@ export default function(state = initialState, action) {
       }
     case REMOVE_FAVORITE:
       return {
-        ...state.slice(0, action.index),
+        ...state.slice(0, action.index), //should this be ...state.favorites.slice
         ...state.slice(action.index + 1)
 
       }

@@ -17,6 +17,7 @@ const Navigation = () => {
             className="d-inline-block align-top"
           />
           </Navbar.Brand></Link>
+          <Link to="/favorites"/>
       </Navbar>
     </>
     );

@@ -20,11 +20,11 @@ const Landing = () => {
                         ease back pain and even help you sleep better.
                     </p>
                 <h3>
-                Click the button below to see yoga poses you can add to your daily fitness routine 
+                Click the button below to learn more about the yoga poses you can add to your daily fitness routine 
                 </h3>
                 <br />
                     <ul>
-                        <li><Link to="/yoga"><button type="button" class="btn btn-primary btn-lg">Yoga</button></Link></li>
+                        <li><Link to="/yoga"><button type="button" class="btn btn-primary btn-lg">Learn more</button></Link></li>
                     </ul>
             </Jumbotron>
             </div>

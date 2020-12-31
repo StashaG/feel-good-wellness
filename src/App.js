@@ -2,10 +2,11 @@ import { Route, Switch } from 'react-router-dom';
 import Navigation from './components/Navigation';
 import Landing from './components/Landing';
 import Yoga from './components/Yoga';
+import Favorites from './components/Favorites';
 // import Header from './components/Header';
 import './index.css';
 import './App.css'
-// import Footer from './components/Footer';
+import Footer from './components/Footer';
 
 
 const App = () => {
@@ -21,10 +22,10 @@ const App = () => {
           <Switch>
             <Route exact path='/' component={Landing} /> 
             <Route path='/yoga' component={Yoga} />
-            {/* <Route path='/footer' component={Footer} />  */}
+            <Route path='/favorites' component={Favorites} /> 
           </Switch>
        </main>
-       {/* <Footer /> */}
+       <Footer />
        </div>
       </div>
     );

@@ -6,9 +6,9 @@ import Container from "react-bootstrap/Container";
 import OAuth from "oauth";
 // import YogaCard from "./YogaCard";
 // import { IoIosHeartEmpty } from "react-icons/io";
-import { doAddToFavorites } from "../redux/actions";
-import { doRemoveFavorites } from "../redux/actions";
-import { doClearFavorites } from "../redux/actions";
+import { doAddToFavorites, doRemoveFavorites, doClearFavorites } from "../redux/actions";
+// import { doRemoveFavorites } from "../redux/actions";
+// import { doClearFavorites } from "../redux/actions";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 const API_SECRET = process.env.REACT_APP_API_SECRET;
@@ -33,6 +33,10 @@ const Yoga = (props) => {
     image: "url of the pose",
     isFavorite: false,
   };
+
+  const handleChange = e => {
+    // setFavorites(e.target.value);
+  }
 
   useEffect(() => {
     oauth.get(
@@ -89,12 +93,12 @@ const Yoga = (props) => {
               <h1>{yoga.name}</h1>
               <img src={yoga.image} />
               <button
-                onClick={()=>{
+                onClick={()=> {
 console.log(favorites);
 
 // const favoritesId = favorites.find(element => element === id)
 // console.log(favoritesId);
-                    if (false) {
+                    if (false) { //
                       // IF it is a favorite, remove
                     } else {
                       // ELSE add to favorites
@@ -115,6 +119,7 @@ const mapDispatchToProps = dispatch => ({
     doRemoveFavorites: (id) => dispatch(doAddToFavorites(id)),
     doClearFavorites: (id) => dispatch(doAddToFavorites(id))
   });
+  
 const mapStateToProps = state => ({
   favorites: state.favorites,
   favorites: state.slice,
