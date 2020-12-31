@@ -5,7 +5,7 @@ import Container from "react-bootstrap/Container";
 // import Card from "react-bootstrap/Card";
 import OAuth from "oauth";
 // import YogaCard from "./YogaCard";
-// import { IoIosHeartEmpty } from "react-icons/io";
+// import { IoIosHeart, IoIosHeartEmpty } from "react-icons/io";
 import { doAddToFavorites, doRemoveFavorites, doClearFavorites } from "../redux/actions";
 // import { doRemoveFavorites } from "../redux/actions";
 // import { doClearFavorites } from "../redux/actions";
@@ -25,18 +25,25 @@ const oauth = new OAuth.OAuth(
 const Yoga = (props) => {
   const [yogaData, setYogaData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-  // const [selectValue, setSelectValue] = useState("");
-  // const [favorites, setFavorites] = useState([]);
+  const [favorite, setFavorite] = useState([]);
   
-  const favorites = {
-    name: "name of the pose",
-    image: "url of the pose",
-    isFavorite: false,
-  };
+  // const favorites = {
+  //   name: "name of the pose",
+  //   image: "url of the pose",
+  //   isFavorite: false,
+  // };
 
-  const handleChange = e => {
-    // setFavorites(e.target.value);
+  const handleSubmit = e => {
+    if (e.target.name === "favorite") setFavorite(e.target.value);
+    setFavorite(e.target.value);
   }
+
+const handleFavSubmit = () => {
+props.doAddToFavorites(favorite);
+props.doRemoveFavorites(favorite);
+props.doClearFavorites(favorite);
+setFavorite({});
+}
 
   useEffect(() => {
     oauth.get(
@@ -93,19 +100,8 @@ const Yoga = (props) => {
               <h1>{yoga.name}</h1>
               <img src={yoga.image} />
               <button
-                onClick={()=> {
-console.log(favorites);
-
-// const favoritesId = favorites.find(element => element === id)
-// console.log(favoritesId);
-                    if (false) { //
-                      // IF it is a favorite, remove
-                    } else {
-                      // ELSE add to favorites
-                      props.doAddToFavorites(id)
-                    }
-                } }
-              >Add to Favorites</button>
+                onClick={handleSubmit}
+              >Add to Favorites</button> 
             </div>
           )
         }
