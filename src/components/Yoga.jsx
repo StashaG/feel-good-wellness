@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { Jumbotron } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
+import Button from 'react-bootstrap/Button'
+import 'bootstrap/dist/css/bootstrap.min.css';
 // import Card from "react-bootstrap/Card";
 import OAuth from "oauth";
-// import YogaCard from "./YogaCard";
-// import { IoIosHeart, IoIosHeartEmpty } from "react-icons/io";
 import { doAddToFavorites, doRemoveFavorites, doClearFavorites } from "../redux/actions";
 // import { doRemoveFavorites } from "../redux/actions";
 // import { doClearFavorites } from "../redux/actions";
@@ -99,9 +99,17 @@ setFavorite({});
             <div key={id}>
               <h1>{yoga.name}</h1>
               <img src={yoga.image} />
-              <button
-                onClick={handleSubmit}
-              >Add to Favorites</button> 
+              <>
+              <Button variant="primary" size="sm">
+                Add to Favorites
+              </Button>{' '}
+              <Button variant="info" size="sm">
+                Remove Favorite
+              </Button>{' '}
+              <Button variant="secondary" size="sm">
+                Clear Favorite
+              </Button>
+              </>
             </div>
           )
         }

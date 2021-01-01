@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^12.5.0",
     "axios": "^0.21.0",
     "bootstrap": "^4.5.3",
+    "bootstrap-icons": "^1.2.2",
     "dotenv": "^8.2.0",
     "node-sass": "^5.0.0",
     "oauth": "^0.9.15",
