@@ -51,7 +51,7 @@ img {
 .footer {
   margin-top: 1rem;
   padding: 1rem;
-  background-color: rgb(155, 135, 165);
+  background-color: #C5BAF5;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -60,5 +60,5 @@ img {
 }
 
 .lighten-text {
-  color: whitesmoke;
+  color: white;
 }
