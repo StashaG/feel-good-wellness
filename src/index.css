@@ -47,3 +47,18 @@ img {
 .button {
   
 }
+
+.footer {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: rgb(155, 135, 165);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.lighten-text {
+  color: whitesmoke;
+}
