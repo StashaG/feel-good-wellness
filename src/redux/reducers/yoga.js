@@ -8,7 +8,8 @@ const initialState = {
 };
 
 export default function(state = initialState, action) {
-  switch (action.type){
+  console.log(action.payload);
+  switch (action.type) {
     case ADD_FAVORITE: 
       return {
         ...state,
@@ -18,8 +19,8 @@ export default function(state = initialState, action) {
       return {
         ...state.slice(0, action.index), //should this be ...state.favorites.slice
         ...state.slice(action.index + 1)
-
       }
+
       case CLEAR_FAVORITE:
       return state.map((index) => {
         if (index === action.index) {
@@ -28,7 +29,6 @@ export default function(state = initialState, action) {
             favorites:[]
           }
         }
-        return
       })
       default: 
         return state;

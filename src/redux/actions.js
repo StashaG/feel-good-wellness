@@ -25,25 +25,10 @@ import {
             }
         }
     }
- 
 
- export const doAddToFavorites = (id) => dispatch => {
-     dispatch ({
-         type: ADD_FAVORITE, 
-         payload: id
-     })
- };
-
- export const doRemoveFavorites = (id) => dispatch => {
-    dispatch ({
-        type: REMOVE_FAVORITE, 
-        payload: id
-    })
-};
-
-export const doClearFavorites = (id) => dispatch => {
-    dispatch ({
+export const clearFavorite = index => {
+    return {
         type: CLEAR_FAVORITE, 
-        payload: id
-    })
+        payload: index,
+    }
 };

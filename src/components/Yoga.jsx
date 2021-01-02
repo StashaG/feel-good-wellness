@@ -2,13 +2,11 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { Jumbotron } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
-import Button from 'react-bootstrap/Button'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '../index.css';
 // import Card from "react-bootstrap/Card";
 import OAuth from "oauth";
-import { doAddToFavorites, doRemoveFavorites, doClearFavorites } from "../redux/actions";
-// import { doRemoveFavorites } from "../redux/actions";
-// import { doClearFavorites } from "../redux/actions";
+import { addFavorite, removeFavorite, clearFavorite } from "../redux/actions";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 const API_SECRET = process.env.REACT_APP_API_SECRET;
@@ -25,25 +23,19 @@ const oauth = new OAuth.OAuth(
 const Yoga = (props) => {
   const [yogaData, setYogaData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-  const [favorite, setFavorite] = useState([]);
-  
-  // const favorites = {
-  //   name: "name of the pose",
-  //   image: "url of the pose",
-  //   isFavorite: false,
-  // };
+  const [favorites, setFavorites] = useState([]);
 
-  const handleSubmit = e => {
-    if (e.target.name === "favorite") setFavorite(e.target.value);
-    setFavorite(e.target.value);
+  const handleAdd = () => {
+    const newFav = yogaData.concat({ favorites });
+    setFavorites(newFav);
   }
 
-const handleFavSubmit = () => {
-props.doAddToFavorites(favorite);
-props.doRemoveFavorites(favorite);
-props.doClearFavorites(favorite);
-setFavorite({});
-}
+// const handleFavSubmit = () => {
+// props.addFavorites(favorite);
+// props.removeFavorites(favorite);
+// props.clearFavorites(favorite);
+// setFavorite({});
+// }
 
   useEffect(() => {
     oauth.get(
@@ -52,20 +44,29 @@ setFavorite({});
       null,
       function (e, data, res) {
         if (e) console.error(e);
-        const yd = JSON.parse(data);
-        console.log(props);
-        const yogaItems = [];
-        // Get access to the store from this component
+        const yd = JSON.parse(data); //convert text yoga data into a JS object
+        // console.log(props);
+        const yogaItems = []; //yogaItems = empty array
         // mark the yogaItems as favorite (true/false)
         for (let i = 0; i < 10; i++) {
+          
+          const handleAdd = () => {
+          if (favorites) {
+            removeFavorite(i);
+          } else {
+          props.addFavorite(i);
+          setFavorites();
+          }
+        }
             // const isFavorite = search favorites for this index (i)
             // if you find it, then isFavorite is true
-            yogaItems.push({
+            yogaItems.push({ //push yoga items onto the array
                 id: i,
                 name: yd.icons[i].term,
                 image: yd.icons[i].preview_url,
                 isFavorite: false, 
             });
+
         }
         setYogaData(yogaItems);
         setIsLoading(false);
@@ -74,7 +75,6 @@ setFavorite({});
   }, []);
 
   return (
-    // const yoga = this.state.isReady ? this.state.yoga.map( url => <)
     <div className="container">
       <Jumbotron fluid>
         <Container>
@@ -100,15 +100,15 @@ setFavorite({});
               <h1>{yoga.name}</h1>
               <img src={yoga.image} />
               <>
-              <Button variant="primary" size="sm">
+              <button className="button" onClick={handleAdd}>
                 Add to Favorites
-              </Button>{' '}
-              <Button variant="info" size="sm">
+              </button>{' '}
+              <button className="button" onClick={''}>
                 Remove Favorite
-              </Button>{' '}
-              <Button variant="secondary" size="sm">
+              </button>{' '}
+              <button className="button" onClick={''}>
                 Clear Favorite
-              </Button>
+              </button>
               </>
             </div>
           )
@@ -119,9 +119,9 @@ setFavorite({});
 };
 
 const mapDispatchToProps = dispatch => ({
-    doAddToFavorites: (id) => dispatch(doAddToFavorites(id)),
-    doRemoveFavorites: (id) => dispatch(doAddToFavorites(id)),
-    doClearFavorites: (id) => dispatch(doAddToFavorites(id))
+    addFavorite: (index) => dispatch(addFavorite(index)),
+    removeFavorite: (index) => dispatch(removeFavorite(index)),
+    clearFavorite: (index) => dispatch(clearFavorite(index))
   });
   
 const mapStateToProps = state => ({

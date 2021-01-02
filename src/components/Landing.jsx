@@ -1,6 +1,5 @@
 import React from 'react';
 import { Jumbotron } from 'react-bootstrap';
-// import Button from 'react-bootstrap/Button'
 // import { Redirect } from 'react-router-dom';
 // import Header from './Header';
 import { Link } from 'react-router-dom';
