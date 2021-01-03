@@ -3,7 +3,8 @@ import { connect } from "react-redux";
 import JumbotronComponent from "./JumbotronComponent";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../index.css';
-// import Card from "react-bootstrap/Card";
+import Card from "react-bootstrap/Card";
+import CardDeck from "react-bootstrap/CardDeck";
 import OAuth from "oauth";
 import { addFavorite, removeFavorite, clearFavorite } from "../redux/actions";
 
@@ -97,10 +98,16 @@ const Yoga = (props) => {
         {!isLoading &&
           yogaData.map((yoga, id) =>
             <div key={id}>
-              <h1>{yoga.name}</h1>
-              <img src={yoga.image} />
-              <>
-              <button className="favButton" onClick={handleAdd}> 
+              <CardDeck>
+                <Card>
+                  <Card.Img variant="top" src={yoga.image} />
+                  <Card.Body>
+                    <Card.Title>{yoga.name}</Card.Title>
+                    <Card.Text>
+                      This is a wider card with supporting text below as a natural lead-in to
+                      additional content. This content is a little bit longer.
+                    </Card.Text>
+                    <button className="favButton" onClick={handleAdd}> 
                 Add to Favorites
               </button>{' '}
               <button className="removeButton" onClick={''}>
@@ -109,7 +116,9 @@ const Yoga = (props) => {
               <button className="clearButton" onClick={''}>
                 Clear Favorite
               </button>
-              </>
+                  </Card.Body>
+                </Card>
+              </CardDeck>
             </div>
           )
         }

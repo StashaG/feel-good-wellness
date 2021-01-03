@@ -1,7 +1,7 @@
 import React from 'react';
 import { Jumbotron } from 'react-bootstrap';
 
-function JumbotronComponent(props) {
+const JumbotronComponent = (props) => {
   return (
     <div>
       <Jumbotron>
