@@ -1,8 +1,8 @@
 import React from 'react';
-// import { IoIosHeart, IoIosHeartEmpty } from 'react-icons/io';
+import { IoIosHeart, IoIosHeartEmpty } from 'react-icons/io';
 
 
-const Favorites = () => {
+const Favorites = (props) => {
   
     return(
         <div>

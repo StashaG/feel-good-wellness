@@ -5,17 +5,18 @@ import {
 } from"./actionTypes";
 
 
- export const addFavorite = index => {
+ export const addFavorite = id => {
     return {
         type: ADD_FAVORITE,
-        payload: index 
+        payload: id,
+        
     }
  };
 
- export const removeFavorite = index => {
+ export const removeFavorite = id => {
     return {
         type: REMOVE_FAVORITE,
-        payload: index,
+        payload: id,
 
             favorite: {
 
@@ -26,9 +27,9 @@ import {
         }
     }
 
-export const clearFavorite = index => {
+export const clearFavorite = id => {
     return {
         type: CLEAR_FAVORITE, 
-        payload: index,
+        payload: id,
     }
 };
