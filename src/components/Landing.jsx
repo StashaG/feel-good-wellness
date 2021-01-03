@@ -10,6 +10,7 @@ import '../index.css';
 const Landing = () => {
         return (
             <div className="container">
+                {/* <Header /> */}
            <Jumbotron>
                 <h1>Welcome to Feel Good Wellness!</h1>
                     <p>

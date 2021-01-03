@@ -1,10 +1,10 @@
 import React from 'react';
-import Yogaom from './images/yoga-om.jpg';
+import yogaposes from './images/yogaposes.jpeg';
 
 const Header = () => {
     return (
         <div>
-            <img src={Yogaom} alt="Yoga" />
+            <img src={yogaposes} alt="Yoga" />
             
         </div>
     )

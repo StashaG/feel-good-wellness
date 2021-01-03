@@ -25,14 +25,6 @@ const Yoga = (props) => {
   const [isLoading, setIsLoading] = useState(true);
   const [favorites, setFavorites] = useState([]);
 
-  
-
-//   const yogaFavorites = () => {
-
-//     name: "name of the pose",
-//     image: "url of the pose",
-//     isFavorite: false
-// }
 
   const handleAdd = () => {
     // console.log('Button Clicked');
@@ -104,8 +96,7 @@ const Yoga = (props) => {
                   <Card.Body>
                     <Card.Title>{yoga.name}</Card.Title>
                     <Card.Text>
-                      This is a wider card with supporting text below as a natural lead-in to
-                      additional content. This content is a little bit longer.
+                      Add Yoga pose description here
                     </Card.Text>
                     <button className="favButton" onClick={handleAdd}> 
                 Add to Favorites

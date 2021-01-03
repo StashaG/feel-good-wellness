@@ -35,7 +35,10 @@ img {
 }
 
 .main-content {
-
+  width: 50%;
+  height: 100px;
+  object-fit: none;
+  object-position:bottom;
 }
 
 .container {

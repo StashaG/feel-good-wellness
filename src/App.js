@@ -18,7 +18,6 @@ const App = () => {
         <Navigation />
         <div className="container">
           {/* <Header /> */}
-        {/* <img src="/images/healthy-food-display.jpg" alt="healthy-food"/> */}
          <main>
           <Switch>
             <Route exact path='/' component={Landing} /> 

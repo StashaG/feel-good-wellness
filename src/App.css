@@ -1,23 +1,21 @@
-/* .jumbotron {
-    background: url('./components/images/yoga-om.jpeg') center center/cover no-repeat;
-    height: 100vh;
-    width: 100%
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.jumbotron {
+    background: url('./components/images/yogaposes.jpeg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding-top: 50px;
+    font-weight: bold;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    padding: 100px;
+    border-radius: 50px;
     box-shadow: inset 0 0 0 1000px rgba(0,0,0,0.2);
-    object-fit: contain;
 }
 
-.jumbotron h1, p {
+.jumbotron h1, p, h3, ul, h4 {
     background-color: #fff;
-    font-size: 100px;
-    margin-top: -100px;
-} */
+    padding: 50px;
+    text-align: center;
+    border-radius: 50px;
+}
 
-.container {
-    width: auto;
-    max-width: 680px;
-    padding: 0 15px;
-  }
