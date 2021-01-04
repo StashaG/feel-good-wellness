@@ -23,8 +23,6 @@ const App = () => {
             <Route exact path='/' component={Landing} /> 
             <Route path='/yoga' component={Yoga} />
             {/* <Route path='/favorites' component={Favorites} />  */}
-            {/* <Route path='/yogacard' component={YogaCard} />  */}
-
           </Switch>
        </main>
        <Footer />

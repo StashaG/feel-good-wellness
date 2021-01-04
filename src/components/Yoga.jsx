@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import JumbotronComponent from "./JumbotronComponent";
+// import YogaCard from './components/YogaCard';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styled from 'styled-components';
 import '../index.css';
@@ -67,7 +68,7 @@ const Yoga = (props) => {
         // console.log(props);
         const yogaItems = []; //yogaItems = empty array
         // mark the yogaItems as favorite (true/false)
-        for (let i = 0; i < 10; i++) {
+        for (let i = 0; i < 5; i++) {
           
         //   const handleAdd = () => {
         //   if (favorites) {
