@@ -1,13 +1,11 @@
 import React from 'react';
 import yogaposes from './images/yogaposes.jpeg';
 
-const Header = () => {
-    return (
-        <div>
-            <img src={yogaposes} alt="Yoga" />
-            
-        </div>
-    )
+console.log(yogaposes);
+function Header() {
+     
+        
+     return <img src={yogaposes} width={800} height={800} alt="Yoga" />;
 }
 
 export default Header;

@@ -3,7 +3,7 @@ import { Jumbotron } from 'react-bootstrap';
 
 const JumbotronComponent = (props) => {
   return (
-    <div>
+    <div className="jumbo-container">
       <Jumbotron>
         <h1>{props.heading}</h1>
             <br />

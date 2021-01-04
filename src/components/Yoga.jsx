@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import JumbotronComponent from "./JumbotronComponent";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import styled from 'styled-components';
 import '../index.css';
+// import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Card from "react-bootstrap/Card";
 import CardDeck from "react-bootstrap/CardDeck";
 import OAuth from "oauth";
@@ -20,16 +22,31 @@ const oauth = new OAuth.OAuth(
   "HMAC-SHA1"
 );
 
+const Button = styled.button`
+  background-color: #7986cb;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  outline: 0;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0px 2px 2px lightgray;
+  transition: ease background-color 250ms;
+  &:hover {
+    background-color: #3f51b5;
+  }
+  `
+
 const Yoga = (props) => {
   const [yogaData, setYogaData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-  const [favorites, setFavorites] = useState([]);
+  const [favorites, setFavorites] = useState(props.favorites);
 
 
-  const handleAdd = () => {
+  const handleAddFav = (e) => {
     // console.log('Button Clicked');
-    props.addFavorite(favorites);
-    setFavorites();
+    props.addFavorite({favorites});
+    setFavorites({ favorites });
   }
 
 // const handleFavSubmit = () => {
@@ -98,15 +115,16 @@ const Yoga = (props) => {
                     <Card.Text>
                       Add Yoga pose description here
                     </Card.Text>
-                    <button className="favButton" onClick={handleAdd}> 
+                    {/* <ButtonGroup /> */}
+                    <Button className="favButton" onClick={handleAddFav}> 
                 Add to Favorites
-              </button>{' '}
-              <button className="removeButton" onClick={''}>
+              </Button>{' '}
+              <Button className="removeButton" onClick={''}>
                 Remove Favorite
-              </button>{' '}
-              <button className="clearButton" onClick={''}>
+              </Button>{' '}
+              <Button className="clearButton" onClick={''}>
                 Clear Favorite
-              </button>
+              </Button>
                   </Card.Body>
                 </Card>
               </CardDeck>

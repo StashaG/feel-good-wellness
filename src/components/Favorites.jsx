@@ -1,14 +1,14 @@
-import React from 'react';
-import { IoIosHeart, IoIosHeartEmpty } from 'react-icons/io';
+// import React from 'react';
+// import { IoIosHeart, IoIosHeartEmpty } from 'react-icons/io';
 
 
-const Favorites = (props) => {
+// const Favorites = (props) => {
   
-    return(
-        <div>
-            <h1>Favorites</h1>
-        </div>
-    )
-}
+//     return(
+//         <div>
+//             <h1>Favorites</h1>
+//         </div>
+//     )
+// }
 
-export default Favorites;
+// export default Favorites;

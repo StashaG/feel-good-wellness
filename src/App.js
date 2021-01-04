@@ -3,7 +3,7 @@ import Navigation from './components/Navigation';
 import Landing from './components/Landing';
 import Yoga from './components/Yoga';
 // import YogaCard from './components/YogaCard';
-import Favorites from './components/Favorites';
+// import Favorites from './components/Favorites';
 // import Header from './components/Header';
 import './index.css';
 import './App.css'
@@ -22,7 +22,7 @@ const App = () => {
           <Switch>
             <Route exact path='/' component={Landing} /> 
             <Route path='/yoga' component={Yoga} />
-            <Route path='/favorites' component={Favorites} /> 
+            {/* <Route path='/favorites' component={Favorites} />  */}
             {/* <Route path='/yogacard' component={YogaCard} />  */}
 
           </Switch>
