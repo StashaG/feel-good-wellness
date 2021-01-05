@@ -1,6 +1,6 @@
 import { ADD_FAVORITE } from "../actionTypes";
 import { REMOVE_FAVORITE } from "../actionTypes";
-import { CLEAR_FAVORITE } from "../actionTypes";
+import { CLEAR_ITEMS } from "../actionTypes";
 
 
 const initialState = {
@@ -13,7 +13,7 @@ export default function(state = initialState, action) {
     case ADD_FAVORITE: 
       return {
         ...state,
-        favorites: state.favorites.concat(action.payload),
+        favorites: action.payload,
       }
     case REMOVE_FAVORITE:
       return {
@@ -21,7 +21,7 @@ export default function(state = initialState, action) {
         ...state.slice(action.index + 1)
       }
 
-      case CLEAR_FAVORITE:
+      case CLEAR_ITEMS:
       return state.map((index) => {
         if (index === action.index) {
           return {

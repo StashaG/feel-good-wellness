@@ -1,4 +1,6 @@
 export const ADD_FAVORITE = "ADD_FAVORITE";
 export const REMOVE_FAVORITE = "REMOVE_FAVORITE";
-export const CLEAR_FAVORITE = "CLEAR_FAVORITE";
+export const CLEAR_ITEMS = "CLEAR_ITEMS";
+export const ADD_YOGA_ITEMS = "ADD_YOGA_ITEMS";
+
 

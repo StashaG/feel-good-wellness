@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import JumbotronComponent from "./JumbotronComponent";
+// import Favorites from "./Favorites";
 // import YogaCard from './components/YogaCard';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styled from 'styled-components';
@@ -9,7 +10,7 @@ import '../index.css';
 import Card from "react-bootstrap/Card";
 import CardDeck from "react-bootstrap/CardDeck";
 import OAuth from "oauth";
-import { addFavorite, removeFavorite, clearFavorite } from "../redux/actions";
+import { addFavorite, removeFavorite, clearItems, addYogaItems } from "../redux/actions";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 const API_SECRET = process.env.REACT_APP_API_SECRET;
@@ -40,62 +41,46 @@ const Button = styled.button`
 
 const Yoga = (props) => {
   const [yogaData, setYogaData] = useState({});
+  const [yogaItems, setYogaItems] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-  const [favorites, setFavorites] = useState(props.favorites);
-
-
-  const handleAddFav = (e) => {
-    // console.log('Button Clicked');
-    props.addFavorite({favorites});
-    setFavorites({ favorites });
+  
+  const handleAddFav = (item) => {
+    props.addFavorite(item)
   }
 
-// const handleFavSubmit = () => {
-// props.addFavorites(favorite);
-// props.removeFavorites(favorite);
-// props.clearFavorites(favorite);
-// setFavorite({});
-// }
-
-  useEffect(() => {
-    oauth.get(
-      "https://api.thenounproject.com/collection/yoga-pose-set-1/icons",
-      null,
-      null,
-      function (e, data, res) {
-        if (e) console.error(e);
-        const yd = JSON.parse(data); //convert text yoga data into a JS object
-        // console.log(props);
-        const yogaItems = []; //yogaItems = empty array
-        // mark the yogaItems as favorite (true/false)
-        for (let i = 0; i < 5; i++) {
+  // useEffect(() => {
+  //   oauth.get(
+  //     "https://api.thenounproject.com/collection/yoga-pose-set-1/icons",
+  //     null,
+  //     null,
+  //     function (e, data, res) {
+  //       if (e) console.error(e);
+  //       const yd = JSON.parse(data); //convert text yoga data into a JS object
+  //       console.log(data);
+  //       const yogaItems = []; //yogaItems = empty array
+  //       // mark the yogaItems as favorite (true/false)
+  //       for (let i = 0; i < 5; i++) {
           
-        //   const handleAdd = () => {
-        //   if (favorites) {
-        //     removeFavorite(i);
-        //   } else {
-        //   props.addFavorite(i);
-        //   setFavorites();
-        //   }
-        // }
-            // const isFavorite = search favorites for this index (i)
-            // if you find it, then isFavorite is true
-            yogaItems.push({ //push yoga items onto the array
-                id: i,
-                name: yd.icons[i].term,
-                image: yd.icons[i].preview_url,
-                isFavorite: false, 
-            });
+        
+  //           // const isFavorite = search favorites for this index (i)
+  //           // if you find it, then isFavorite is true
+  //           yogaItems.push({ //push yoga items onto the array
+  //               id: yd.icons[i].term_id,
+  //               name: yd.icons[i].term,
+  //               image: yd.icons[i].preview_url,
+  //               isFavorite: false, 
+  //           });
 
-        }
-        setYogaData(yogaItems);
-        setIsLoading(false);
-      }
-    );
-  }, []);
+  //       }
+  //       setYogaData(yogaItems);
+  //       setIsLoading(false);
+  //     }
+  //   );
+  // }, [props.favorites]);
 
   return (
     <div className="container">
+      {props.favorites && props.favorites[0].id}
       <JumbotronComponent heading="Yoga" 
            content="Cobra pose is a floor pose which gently stretches and flexes the body. 
             Its head-up position is reminiscent of a cobra rising up off the ground. 
@@ -107,7 +92,7 @@ const Yoga = (props) => {
       <div className="main-content">
         {!isLoading &&
           yogaData.map((yoga, id) =>
-            <div key={id}>
+            <div key={yoga.id}>
               <CardDeck>
                 <Card>
                   <Card.Img variant="top" src={yoga.image} />
@@ -116,15 +101,16 @@ const Yoga = (props) => {
                     <Card.Text>
                       Add Yoga pose description here
                     </Card.Text>
+                    {/* <Favorites /> */}
                     {/* <ButtonGroup /> */}
-                    <Button className="favButton" onClick={handleAddFav}> 
+                    <Button className="favButton" onClick={(e) => handleAddFav(yoga)}> 
                 Add to Favorites
               </Button>{' '}
               <Button className="removeButton" onClick={''}>
                 Remove Favorite
               </Button>{' '}
               <Button className="clearButton" onClick={''}>
-                Clear Favorite
+                Clear
               </Button>
                   </Card.Body>
                 </Card>
@@ -139,14 +125,15 @@ const Yoga = (props) => {
 
 const mapDispatchToProps = dispatch => ({
     addFavorite: (id) => dispatch(addFavorite(id)),
+   addYogaItems: (id) => dispatch(addYogaItems(id)),
     removeFavorite: (id) => dispatch(removeFavorite(id)),
-    clearFavorite: (id) => dispatch(clearFavorite(id))
+    clearItems: (id) => dispatch(clearItems(id))
   });
   
 const mapStateToProps = state => ({
   favorites: state.favorites,
-  favorites: state.slice,
-  favorites: []
+  yogaData: state.yogaItems
+
 });
 
 export default connect (mapStateToProps, mapDispatchToProps)(Yoga);
