@@ -20,36 +20,34 @@ const oauth = new OAuth.OAuth(
 
 export const fetchData = () => dispatch => {
     let yogaItems = [];
-    const results = oauth.get(
+    oauth.get(
         "https://api.thenounproject.com/collection/yoga-pose-set-1/icons",
         null,
         null,
-        async (e, data, res) => {
+        function (e, data, res) {
           if (e) console.error(e);
           const items = JSON.parse(data); //convert text yoga data into a JS object
-            yogaItems = await items.icons.map((icon, i) => {
+            yogaItems = items.icons.map((icon, i) => {
             const newItem = {
                 id: icon.term_id,
                 name: icon.term,
                 image: icon.preview_url,
                 isFavorite: false, 
             }
-            return newItem
             }) 
-            
             return {
                 type: ADD_YOGA_ITEMS,
                 payload: yogaItems
                 
             };
         }
-      );
-      console.log(results)
-    //   return {
-    //     type: ADD_YOGA_ITEMS,
-    //     payload: yogaItems
         
-    // };
+      );
+      return {
+        type: ADD_YOGA_ITEMS,
+        payload: yogaItems
+        
+    };
 }
 
  export const addFavorite = (item) => {

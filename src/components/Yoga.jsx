@@ -6,6 +6,7 @@ import Favorites from "./Favorites";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styled from 'styled-components';
 import '../index.css';
+import '../App.css';
 // import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Card from "react-bootstrap/Card";
 import CardDeck from "react-bootstrap/CardDeck";
@@ -79,46 +80,48 @@ const Yoga = (props) => {
   // }, [props.favorites]);
 
   return (
-    <div className="container">
-      {props.favorites && props.favorites[0].id}
-      <JumbotronComponent heading="Yoga" 
-           content="Cobra pose is a floor pose which gently stretches and flexes the body. 
-            Its head-up position is reminiscent of a cobra rising up off the ground. 
-            It brings flexibility and strength.  Cat Pose, or Marjaryasana, is one of the most commonly recognized yoga poses. 
-          The shape of the body resembles a stretching, arching cat. This pose is usually 
-          done as a partner to Cow Pose, as Cat Pose has the back high while Cow Pose has the back low."
-          selection="Listed below are great yoga poses you could try at home. Select one of the poses to add 
-            to a favorites list to try at home."></JumbotronComponent> 
-      <div className="main-content">
-        {!isLoading &&
-          yogaData.map((yoga, id) =>
-            <div key={yoga.id}>
-              <CardDeck>
-                <Card>
-                  <Card.Img variant="top" src={yoga.image} />
-                  <Card.Body>
-                    <Card.Title>{yoga.name}</Card.Title>
-                    <Card.Text>
-                      Add Yoga pose description here
-                    </Card.Text>
-                    <Favorites />
-                    {/* <ButtonGroup /> */}
-                    <Button className="favButton" onClick={(e) => handleAddFav(yoga)}> 
-                Add to Favorites
-              </Button>{' '}
-              <Button className="removeButton" onClick={''}>
-                Remove Favorite
-              </Button>{' '}
-              <Favorites />{' '}
-              <Button className="clearButton" onClick={''}>
-                Clear
-              </Button>
-                  </Card.Body>
-                </Card>
-              </CardDeck>
-            </div>
-          )
-        }
+    <div className="jumbotron-holder">
+      <div className="container">
+        {props.favorites && props.favorites[0].id}
+        <JumbotronComponent heading="Yoga" 
+            content="Cobra pose is a floor pose which gently stretches and flexes the body. 
+              Its head-up position is reminiscent of a cobra rising up off the ground. 
+              It brings flexibility and strength.  Cat Pose, or Marjaryasana, is one of the most commonly recognized yoga poses. 
+            The shape of the body resembles a stretching, arching cat. This pose is usually 
+            done as a partner to Cow Pose, as Cat Pose has the back high while Cow Pose has the back low."
+            selection="Listed below are great yoga poses you could try at home. Select one of the poses to add 
+              to a favorites list to try at home."></JumbotronComponent> 
+        <div className="main-content">
+          {!isLoading &&
+            yogaData.map((yoga, id) =>
+              <div key={yoga.id}>
+                <CardDeck>
+                  <Card>
+                    <Card.Img variant="top" src={yoga.image} />
+                    <Card.Body>
+                      <Card.Title>{yoga.name}</Card.Title>
+                      <Card.Text>
+                        Add Yoga pose description here
+                      </Card.Text>
+                      <Favorites />
+                      {/* <ButtonGroup /> */}
+                      <Button className="favButton" onClick={(e) => handleAddFav(yoga)}> 
+                  Add to Favorites
+                </Button>{' '}
+                <Button className="removeButton" onClick={''}>
+                  Remove Favorite
+                </Button>{' '}
+                <Favorites />{' '}
+                <Button className="clearButton" onClick={''}>
+                  Clear
+                </Button>
+                    </Card.Body>
+                  </Card>
+                </CardDeck>
+              </div>
+            )
+          }
+        </div>
       </div>
     </div>
   );
