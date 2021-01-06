@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import JumbotronComponent from "./JumbotronComponent";
-// import Favorites from "./Favorites";
+import Favorites from "./Favorites";
 // import YogaCard from './components/YogaCard';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styled from 'styled-components';
@@ -10,7 +10,7 @@ import '../index.css';
 import Card from "react-bootstrap/Card";
 import CardDeck from "react-bootstrap/CardDeck";
 import OAuth from "oauth";
-import { addFavorite, removeFavorite, clearItems, addYogaItems } from "../redux/actions";
+import { addFavorite, removeFavorite, clearItems } from "../redux/actions";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 const API_SECRET = process.env.REACT_APP_API_SECRET;
@@ -101,7 +101,7 @@ const Yoga = (props) => {
                     <Card.Text>
                       Add Yoga pose description here
                     </Card.Text>
-                    {/* <Favorites /> */}
+                    <Favorites />
                     {/* <ButtonGroup /> */}
                     <Button className="favButton" onClick={(e) => handleAddFav(yoga)}> 
                 Add to Favorites
@@ -109,6 +109,7 @@ const Yoga = (props) => {
               <Button className="removeButton" onClick={''}>
                 Remove Favorite
               </Button>{' '}
+              <Favorites />{' '}
               <Button className="clearButton" onClick={''}>
                 Clear
               </Button>
@@ -125,7 +126,6 @@ const Yoga = (props) => {
 
 const mapDispatchToProps = dispatch => ({
     addFavorite: (id) => dispatch(addFavorite(id)),
-   addYogaItems: (id) => dispatch(addYogaItems(id)),
     removeFavorite: (id) => dispatch(removeFavorite(id)),
     clearItems: (id) => dispatch(clearItems(id))
   });

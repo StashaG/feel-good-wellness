@@ -2,6 +2,7 @@ import {
     ADD_FAVORITE, 
     REMOVE_FAVORITE, 
     CLEAR_ITEMS,
+    ADD_YOGA_ITEMS,
 } from "./actionTypes";
 import OAuth from "oauth";
 
@@ -18,34 +19,37 @@ const oauth = new OAuth.OAuth(
 );
 
 export const fetchData = () => dispatch => {
-    const yogaItems = [];
-    oauth.get(
+    let yogaItems = [];
+    const results = oauth.get(
         "https://api.thenounproject.com/collection/yoga-pose-set-1/icons",
         null,
         null,
-        function (e, data, res) {
+        async (e, data, res) => {
           if (e) console.error(e);
-          const yd = JSON.parse(data); //convert text yoga data into a JS object
-       
-
-          for (let i = 0; i < data.length ; i++) {
-              
-              yogaItems.push({ 
-                  id: yd.icons[i].term_id,
-                  name: yd.icons[i].term,
-                  image: yd.icons[i].preview_url,
-                  isFavorite: false, 
-              });
-  
-          }
+          const items = JSON.parse(data); //convert text yoga data into a JS object
+            yogaItems = await items.icons.map((icon, i) => {
+            const newItem = {
+                id: icon.term_id,
+                name: icon.term,
+                image: icon.preview_url,
+                isFavorite: false, 
+            }
+            return newItem
+            }) 
+            
+            return {
+                type: ADD_YOGA_ITEMS,
+                payload: yogaItems
+                
+            };
         }
-        
       );
-      return {
-        type: ADD_FAVORITE,
-        payload: yogaItems
+      console.log(results)
+    //   return {
+    //     type: ADD_YOGA_ITEMS,
+    //     payload: yogaItems
         
-    };
+    // };
 }
 
  export const addFavorite = (item) => {
@@ -70,13 +74,7 @@ export const fetchData = () => dispatch => {
             }
         }
     }
-
-    export const addYogaItems = id => {
-        return {
-            type: ADD_FAVORITE, 
-            payload: id,
-        }
-    }
+   
 
 export const clearItems = id => {
     return {
