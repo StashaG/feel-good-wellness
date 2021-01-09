@@ -2,7 +2,7 @@ import {
     ADD_FAVORITE, 
     REMOVE_FAVORITE, 
     CLEAR_ITEMS,
-    ADD_YOGA_ITEMS,
+    HANDLE_YOGA_ITEMS,
 } from "./actionTypes";
 import OAuth from "oauth";
 
@@ -18,43 +18,43 @@ const oauth = new OAuth.OAuth(
   "HMAC-SHA1"
 );
 
+const handleApiResponse = items => {
+    
+    const yogaItems = items.icons.map(icon => {
+        return {
+            id: icon.term_id,
+            name: icon.term,
+            image: icon.preview_url,
+            isFavorite: false, 
+        }
+    }) 
+    return {
+        type: HANDLE_YOGA_ITEMS,
+        payload: yogaItems
+    };
+}
+
+
+
 export const fetchData = () => dispatch => {
-    let yogaItems = [];
     oauth.get(
         "https://api.thenounproject.com/collection/yoga-pose-set-1/icons",
         null,
         null,
         function (e, data, res) {
-          if (e) console.error(e);
+          if (e) console.error('ERROR', e);
           const items = JSON.parse(data); //convert text yoga data into a JS object
-            yogaItems = items.icons.map((icon, i) => {
-            const newItem = {
-                id: icon.term_id,
-                name: icon.term,
-                image: icon.preview_url,
-                isFavorite: false, 
-            }
-            }) 
-            return {
-                type: ADD_YOGA_ITEMS,
-                payload: yogaItems
-                
-            };
+            dispatch(handleApiResponse(items));
         }
         
       );
-      return {
-        type: ADD_YOGA_ITEMS,
-        payload: yogaItems
-        
-    };
 }
 
- export const addFavorite = (item) => {
+ export const addFavorite = (id) => {
      
     return {
         type: ADD_FAVORITE,
-        payload: {...item},
+        payload: id,
         
     };
  };

@@ -10,7 +10,7 @@ const [favorites, setFavorites] = useState(props.isfavorites);
       <div>
         <h3>Favorite Yoga Pose:{favorites}</h3>
         <div style={styles.heartStyle}>
-        {favorites ? (<IoIosHeart size={32} onClick={() => setFavorites(1)} /> 
+        {favorites ? (<IoIosHeart size={32} onClick={() => setFavorites(1)} />
         ) : (
           <IoIosHeartEmpty size={32}/>
         )}

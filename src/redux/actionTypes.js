@@ -1,6 +1,6 @@
 export const ADD_FAVORITE = "ADD_FAVORITE";
 export const REMOVE_FAVORITE = "REMOVE_FAVORITE";
 export const CLEAR_ITEMS = "CLEAR_ITEMS";
-export const ADD_YOGA_ITEMS = "ADD_YOGA_ITEMS";
+export const HANDLE_YOGA_ITEMS = "HANDLE_YOGA_ITEMS";
 
 

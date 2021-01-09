@@ -1,40 +1,26 @@
-import { ADD_FAVORITE } from "../actionTypes";
-import { REMOVE_FAVORITE } from "../actionTypes";
-import { CLEAR_ITEMS } from "../actionTypes";
+import {  
+  ADD_FAVORITE, 
+  REMOVE_FAVORITE, 
+  CLEAR_ITEMS, 
+  HANDLE_YOGA_ITEMS 
+} from "../actionTypes";
 
-
-const initialState = {
-  favorites: []
-};
+const initialState =  [];
 
 export default function(state = initialState, action) {
-  console.log(action.payload);
   switch (action.type) {
-    case ADD_FAVORITE: 
-      return {
+    case HANDLE_YOGA_ITEMS: 
+      return [
         ...state,
-        favorites: action.payload,
-      }
-    case REMOVE_FAVORITE:
-      return {
-        ...state.slice(0, action.index), //should this be ...state.favorites.slice
-        ...state.slice(action.index + 1)
-      }
+        ...action.payload,
+      ]
+      case ADD_FAVORITE:
+        const target = [...state].find(x => x.id === action.payload.id)
+        target.isFavorite = true;
+        const items = [...state].filter(item => item.id !== action.payload.id)
+        return items.concat(target);
 
-      case CLEAR_ITEMS:
-      return state.map((index) => {
-        if (index === action.index) {
-          return {
-            ...state,
-            favorites:[]
-          }
-        }
-      })
       default: 
         return state;
     }
   }
-
-
-
-

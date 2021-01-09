@@ -9,6 +9,7 @@ import '../index.css';
 
 const Landing = () => {
         return (
+        <div className="jumbotron-holder">
             <div className="container">
                 {/* <Header /> */}
                 <Jumbotron>
@@ -30,6 +31,7 @@ const Landing = () => {
                     </Jumbotron>
                     
             </div>
+        </div>
         )
     }
 

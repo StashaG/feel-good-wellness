@@ -41,48 +41,13 @@ const Button = styled.button`
   `
 
 const Yoga = (props) => {
-  const [yogaData, setYogaData] = useState({});
-  const [yogaItems, setYogaItems] = useState({});
-  const [isLoading, setIsLoading] = useState(true);
-  
   const handleAddFav = (item) => {
     props.addFavorite(item)
   }
 
-  // useEffect(() => {
-  //   oauth.get(
-  //     "https://api.thenounproject.com/collection/yoga-pose-set-1/icons",
-  //     null,
-  //     null,
-  //     function (e, data, res) {
-  //       if (e) console.error(e);
-  //       const yd = JSON.parse(data); //convert text yoga data into a JS object
-  //       console.log(data);
-  //       const yogaItems = []; //yogaItems = empty array
-  //       // mark the yogaItems as favorite (true/false)
-  //       for (let i = 0; i < 5; i++) {
-          
-        
-  //           // const isFavorite = search favorites for this index (i)
-  //           // if you find it, then isFavorite is true
-  //           yogaItems.push({ //push yoga items onto the array
-  //               id: yd.icons[i].term_id,
-  //               name: yd.icons[i].term,
-  //               image: yd.icons[i].preview_url,
-  //               isFavorite: false, 
-  //           });
-
-  //       }
-  //       setYogaData(yogaItems);
-  //       setIsLoading(false);
-  //     }
-  //   );
-  // }, [props.favorites]);
-
   return (
-    <div className="jumbotron-holder">
+   
       <div className="container">
-        {props.favorites && props.favorites[0].id}
         <JumbotronComponent heading="Yoga" 
             content="Cobra pose is a floor pose which gently stretches and flexes the body. 
               Its head-up position is reminiscent of a cobra rising up off the ground. 
@@ -92,10 +57,14 @@ const Yoga = (props) => {
             selection="Listed below are great yoga poses you could try at home. Select one of the poses to add 
               to a favorites list to try at home."></JumbotronComponent> 
         <div className="main-content">
-          {!isLoading &&
-            yogaData.map((yoga, id) =>
+        
+          {props.yogaData &&
+            props.yogaData.map((yoga, id) =>
+            
               <div key={yoga.id}>
+                
                 <CardDeck>
+                <div className="jumbotron-holder">
                   <Card>
                     <Card.Img variant="top" src={yoga.image} />
                     <Card.Body>
@@ -108,20 +77,16 @@ const Yoga = (props) => {
                       <Button className="favButton" onClick={(e) => handleAddFav(yoga)}> 
                   Add to Favorites
                 </Button>{' '}
-                <Button className="removeButton" onClick={''}>
-                  Remove Favorite
-                </Button>{' '}
-                <Favorites />{' '}
                 <Button className="clearButton" onClick={''}>
                   Clear
                 </Button>
                     </Card.Body>
                   </Card>
+                  </div>
                 </CardDeck>
-              </div>
+            </div>
             )
           }
-        </div>
       </div>
     </div>
   );
@@ -135,7 +100,7 @@ const mapDispatchToProps = dispatch => ({
   
 const mapStateToProps = state => ({
   favorites: state.favorites,
-  yogaData: state.yogaItems
+  yogaData: state.yoga
 
 });
 

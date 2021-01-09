@@ -4,7 +4,6 @@ import { Jumbotron } from 'react-bootstrap';
 const JumbotronComponent = (props) => {
   return (   
       <div className="jumbo-container">
-      <p>hello</p>
         <Jumbotron>
           <h1>{props.heading}</h1>
               <br />
