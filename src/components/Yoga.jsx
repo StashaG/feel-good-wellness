@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import JumbotronComponent from "./JumbotronComponent";
-import Favorites from "./Favorites";
+// import Container from ""
+import { FaHeart } from 'react-icons/fa';
+// import Favorites from "./Favorites";
 // import YogaCard from './components/YogaCard';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styled from 'styled-components';
@@ -25,18 +27,22 @@ const oauth = new OAuth.OAuth(
   "HMAC-SHA1"
 );
 
+const Container = styled.div`
+  text-align: right;
+  `;
+
 const Button = styled.button`
-  background-color: #7986cb;
-  color: white;
+  background-color: transparent;
+  color: grey;
   padding: 5px 10px;
-  border-radius: 5px;
+  border-radius: 6px;
   outline: 0;
   text-transform: uppercase;
   cursor: pointer;
   box-shadow: 0px 2px 2px lightgray;
   transition: ease background-color 250ms;
   &:hover {
-    background-color: #3f51b5;
+    background-color: #6200ea;
   }
   `
 
@@ -44,9 +50,8 @@ const Yoga = (props) => {
   const handleAddFav = (item) => {
     props.addFavorite(item)
   }
-
+  
   return (
-   
       <div className="container">
         <JumbotronComponent heading="Yoga" 
             content="Cobra pose is a floor pose which gently stretches and flexes the body. 
@@ -57,12 +62,14 @@ const Yoga = (props) => {
             selection="Listed below are great yoga poses you could try at home. Select one of the poses to add 
               to a favorites list to try at home."></JumbotronComponent> 
         <div className="main-content">
-        
+          <Container>
+            <Button className="clearButton" onClick={''}>
+              Clear
+            </Button>
+          </Container>
           {props.yogaData &&
             props.yogaData.map((yoga, id) =>
-            
               <div key={yoga.id}>
-                
                 <CardDeck>
                 <div className="jumbotron-holder">
                   <Card>
@@ -72,14 +79,11 @@ const Yoga = (props) => {
                       <Card.Text>
                         Add Yoga pose description here
                       </Card.Text>
-                      <Favorites />
+                      {/* <Favorites /> */}
                       {/* <ButtonGroup /> */}
-                      <Button className="favButton" onClick={(e) => handleAddFav(yoga)}> 
-                  Add to Favorites
-                </Button>{' '}
-                <Button className="clearButton" onClick={''}>
-                  Clear
-                </Button>
+                      <Button className="likeBtn" onClick={() => handleAddFav(yoga)}> 
+                        <FaHeart/>
+                      </Button>{' '}
                     </Card.Body>
                   </Card>
                   </div>
