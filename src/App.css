@@ -19,7 +19,18 @@
     border-radius: 50px;
 } */
 
-.jumbotron-holder {
+/* .jumbotron-holder {
     background: url('./components/images/yogaposes.jpeg');
     background-size: cover;
+} */
+
+@media (min-width: 800px) {
+    .card-grid {
+        /* display: flex;
+        justify-content: center; */
+        display: grid;
+        grid-template-columns:auto auto auto auto;
+         /* grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */
+        grid-gap: 16px;
+    }
 }

@@ -30,7 +30,7 @@ const handleApiResponse = items => {
     }) 
     return {
         type: HANDLE_YOGA_ITEMS,
-        payload: yogaItems
+        payload: yogaItems.slice(0, 6)
     };
 }
 
@@ -44,7 +44,9 @@ export const fetchData = () => dispatch => {
         function (e, data, res) {
           if (e) console.error('ERROR', e);
           const items = JSON.parse(data); //convert text yoga data into a JS object
-            dispatch(handleApiResponse(items));
+          console.log(items);  
+          
+          dispatch(handleApiResponse(items));
         }
         
       );

@@ -31,8 +31,14 @@ const Container = styled.div`
   text-align: right;
   `;
 
-const Button = styled.button`
-  background-color: transparent;
+
+
+const Yoga = (props) => {
+
+  const [favorite, setfavorite] = useState(false);
+
+  const Button = styled.button`
+  background-color: ${(favorite ? 'red' : 'transparent')};
   color: grey;
   padding: 5px 10px;
   border-radius: 6px;
@@ -46,9 +52,14 @@ const Button = styled.button`
   }
   `
 
-const Yoga = (props) => {
   const handleAddFav = (item) => {
     props.addFavorite(item)
+    setfavorite(true)
+  }
+
+  const handleClear = (item) => {
+    props.clearItems(item)
+    setfavorite(true)
   }
   
   return (
@@ -63,34 +74,34 @@ const Yoga = (props) => {
               to a favorites list to try at home."></JumbotronComponent> 
         <div className="main-content">
           <Container>
-            <Button className="clearButton" onClick={''}>
+            <Button className="clearButton" onClick={() => handleClear()}>
               Clear
             </Button>
           </Container>
+          <div className="card-grid">
           {props.yogaData &&
             props.yogaData.map((yoga, id) =>
-              <div key={yoga.id}>
-                <CardDeck>
-                <div className="jumbotron-holder">
+            <div key={yoga.id}>
+              
+                {/* <CardDeck className="card-grid"> */}
+                {/* <div className="jumbotron-holder"> */}
                   <Card>
                     <Card.Img variant="top" src={yoga.image} />
                     <Card.Body>
                       <Card.Title>{yoga.name}</Card.Title>
-                      <Card.Text>
-                        Add Yoga pose description here
-                      </Card.Text>
                       {/* <Favorites /> */}
                       {/* <ButtonGroup /> */}
-                      <Button className="likeBtn" onClick={() => handleAddFav(yoga)}> 
+                      <Button className={favorite ? "likeBtn": null} onClick={() => handleAddFav(yoga)}> 
                         <FaHeart/>
                       </Button>{' '}
                     </Card.Body>
                   </Card>
-                  </div>
-                </CardDeck>
-            </div>
+                  {/* </div> */}
+                {/* </CardDeck> */}
+                </div>
             )
           }
+          </div>
       </div>
     </div>
   );

@@ -65,3 +65,7 @@ img {
 .lighten-text {
   color: white;
 }
+
+.likeBtn {
+  background-color: red;
+}
