@@ -15,11 +15,12 @@ export default function(state = initialState, action) {
         ...action.payload,
       ]
       case ADD_FAVORITE:
-        console.log(action.payload);
-        const target = [...state].find(x => x.id === action.payload.id)
-        target.isFavorite = true;
-        const items = [...state].filter(item => item.id !== action.payload.id)
-        return items.concat(target);
+        console.log(action.payload.id);
+        const target = state.findIndex(x => x.id === action.payload.id)
+        const items = [...state]
+        items[target].isFavorite = true
+        return items;
+
       case CLEAR_ITEMS:
         return [];
       default: 

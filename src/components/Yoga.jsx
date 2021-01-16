@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import JumbotronComponent from "./JumbotronComponent";
-// import Container from ""
 import { FaHeart } from 'react-icons/fa';
-// import Favorites from "./Favorites";
 // import YogaCard from './components/YogaCard';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styled from 'styled-components';
 import '../index.css';
 import '../App.css';
-// import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Card from "react-bootstrap/Card";
 import CardDeck from "react-bootstrap/CardDeck";
 import OAuth from "oauth";
@@ -27,19 +24,8 @@ const oauth = new OAuth.OAuth(
   "HMAC-SHA1"
 );
 
-const Container = styled.div`
-  text-align: right;
-  `;
-
-
-
-const Yoga = (props) => {
-
-  const [favorite, setfavorite] = useState(false);
-
-  const Button = styled.button`
-  background-color: ${(favorite ? 'red' : 'transparent')};
-  color: grey;
+const Button = styled.button`
+  background-color: transparent;
   padding: 5px 10px;
   border-radius: 6px;
   outline: 0;
@@ -52,14 +38,18 @@ const Yoga = (props) => {
   }
   `
 
-  const handleAddFav = (item) => {
-    props.addFavorite(item)
-    setfavorite(true)
+  const Container = styled.div`
+  text-align: right;
+  `;
+
+const Yoga = (props) => {
+
+  const handleAddFav = (id) => {
+    props.addFavorite(id)    
   }
 
   const handleClear = (item) => {
     props.clearItems(item)
-    setfavorite(true)
   }
   
   return (
@@ -82,22 +72,21 @@ const Yoga = (props) => {
           {props.yogaData &&
             props.yogaData.map((yoga, id) =>
             <div key={yoga.id}>
-              
-                {/* <CardDeck className="card-grid"> */}
-                {/* <div className="jumbotron-holder"> */}
+              <Container>
+              <div className="jumbotron-holder">
+                <CardDeck>
                   <Card>
                     <Card.Img variant="top" src={yoga.image} />
                     <Card.Body>
                       <Card.Title>{yoga.name}</Card.Title>
-                      {/* <Favorites /> */}
-                      {/* <ButtonGroup /> */}
-                      <Button className={favorite ? "likeBtn": null} onClick={() => handleAddFav(yoga)}> 
+                      <Button className={yoga.isFavorite ? "red": "grey"} onClick={() => handleAddFav(yoga.id)}> 
                         <FaHeart/>
                       </Button>{' '}
                     </Card.Body>
                   </Card>
-                  {/* </div> */}
-                {/* </CardDeck> */}
+                </CardDeck>
+                </div>
+                </Container>
                 </div>
             )
           }
@@ -114,7 +103,6 @@ const mapDispatchToProps = dispatch => ({
   });
   
 const mapStateToProps = state => ({
-  favorites: state.favorites,
   yogaData: state.yoga
 
 });

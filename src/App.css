@@ -26,11 +26,11 @@
 
 @media (min-width: 800px) {
     .card-grid {
-        /* display: flex;
-        justify-content: center; */
-        display: grid;
-        grid-template-columns:auto auto auto auto;
-         /* grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */
+        /* display: flex; */
+        justify-content: center;
+        /* display: grid;
+        grid-template-columns:auto auto auto auto; */
+        /* grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */
         grid-gap: 16px;
     }
 }
