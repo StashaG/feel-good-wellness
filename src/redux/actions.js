@@ -44,8 +44,6 @@ export const fetchData = () => dispatch => {
         function (e, data, res) {
           if (e) console.error('ERROR', e);
           const items = JSON.parse(data); //convert text yoga data into a JS object
-          console.log(items);  
-          
           dispatch(handleApiResponse(items));
         }
         

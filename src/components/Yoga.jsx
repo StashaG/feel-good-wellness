@@ -71,7 +71,7 @@ const Yoga = (props) => {
           <div className="card-grid">
           {props.yogaData &&
             props.yogaData.map((yoga, id) =>
-            <div key={yoga.id}>
+            <div key={`${id}_${yoga.id}`}>
               <Container>
               <div className="jumbotron-holder">
                 <CardDeck>
