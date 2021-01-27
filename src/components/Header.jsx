@@ -1,7 +1,6 @@
 import React from 'react';
 import yogaposes from './images/yogaposes.jpeg';
 
-console.log(yogaposes);
 function Header() {
      
         
