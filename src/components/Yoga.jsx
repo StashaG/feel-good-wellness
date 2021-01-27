@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import JumbotronComponent from "./JumbotronComponent";
 import { FaHeart } from "react-icons/fa";
@@ -9,20 +8,8 @@ import "../index.css";
 import "../App.css";
 import Card from "react-bootstrap/Card";
 import CardDeck from "react-bootstrap/CardDeck";
-import OAuth from "oauth";
 import { toggleFavorite, clearItems } from "../redux/actions";
 
-const API_KEY = process.env.REACT_APP_API_KEY;
-const API_SECRET = process.env.REACT_APP_API_SECRET;
-const oauth = new OAuth.OAuth(
-  "http://api.thenounproject.com",
-  "http://api.thenounproject.com",
-  API_KEY,
-  API_SECRET,
-  "1.0",
-  null,
-  "HMAC-SHA1"
-);
 
 const Button = styled.button`
   background-color: transparent;
