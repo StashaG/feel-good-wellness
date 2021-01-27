@@ -15,7 +15,7 @@ export default function(state = initialState, action) {
         ...action.payload,
       ]
       case ADD_FAVORITE:
-        console.log(action.payload.id);
+       
         const target = state.findIndex(x => x.id === action.payload.id)
         const items = [...state]
         items[target].isFavorite = true
