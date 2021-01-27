@@ -26,8 +26,6 @@
 
 @media (min-width: 800px) {
     .card-grid {
-        /* display: flex; 
-        justify-content: center; */
         display: grid;
         grid-template-columns:150px 150px 150px 150px 150px 150px;
         grid-gap: 16px;
